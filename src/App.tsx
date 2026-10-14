@@ -101,12 +101,12 @@ const MainDashboard: React.FC = () => {
       />
 
       {/* Main Workspace: Desktop Sidebar + Viewport Content */}
-      <div className="flex-1 flex max-w-7xl w-full mx-auto pb-20 lg:pb-8">
+      <div className="flex-1 flex max-w-7xl w-full mx-auto pb-24 lg:pb-8">
         {/* Menú Lateral Desplegable en Escritorio */}
         <Sidebar />
 
         {/* Viewport Content Area */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 min-w-0 overflow-y-auto">
+        <main className="flex-1 p-3 sm:p-5 md:p-6 lg:p-8 min-w-0 w-full overflow-x-hidden">
           {renderCurrentView()}
         </main>
       </div>
