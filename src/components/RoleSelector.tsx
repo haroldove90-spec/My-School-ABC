@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSchool } from '../context/SchoolContext';
 import { RoleId } from '../types';
-import { ShieldCheck, Users, GraduationCap, BookOpen, Download, Database, RotateCcw } from 'lucide-react';
+import { ShieldCheck, Users, GraduationCap, BookOpen, Download, Database } from 'lucide-react';
 import { usePWAInstall } from '../hooks/usePWAInstall';
 
 interface RoleSelectorProps {
@@ -20,49 +20,39 @@ export const RoleSelector: React.FC<RoleSelectorProps> = ({
     id: RoleId;
     title: string;
     icon: React.ReactNode;
-    color: string;
-    hoverBorder: string;
   }[] = [
     {
       id: 'admin',
       title: 'Administrador / Escuela',
-      icon: <ShieldCheck className="w-10 h-10 text-[#0694E8]" />,
-      color: 'bg-blue-50/70 border-slate-200 group-hover:border-[#0694E8]',
-      hoverBorder: 'hover:border-[#0694E8] hover:shadow-md',
+      icon: <ShieldCheck className="w-12 h-12 sm:w-14 sm:h-14 text-white" />,
     },
     {
       id: 'parent',
       title: 'Padre de Familia (Papás)',
-      icon: <Users className="w-10 h-10 text-[#049643]" />,
-      color: 'bg-emerald-50/70 border-slate-200 group-hover:border-[#049643]',
-      hoverBorder: 'hover:border-[#049643] hover:shadow-md',
+      icon: <Users className="w-12 h-12 sm:w-14 sm:h-14 text-white" />,
     },
     {
       id: 'teacher',
       title: 'Docente / Maestro',
-      icon: <BookOpen className="w-10 h-10 text-[#D32421]" />,
-      color: 'bg-red-50/70 border-slate-200 group-hover:border-[#D32421]',
-      hoverBorder: 'hover:border-[#D32421] hover:shadow-md',
+      icon: <BookOpen className="w-12 h-12 sm:w-14 sm:h-14 text-white" />,
     },
     {
       id: 'student',
       title: 'Alumno / Estudiante',
-      icon: <GraduationCap className="w-10 h-10 text-slate-800" />,
-      color: 'bg-slate-100/70 border-slate-200 group-hover:border-slate-800',
-      hoverBorder: 'hover:border-slate-800 hover:shadow-md',
+      icon: <GraduationCap className="w-12 h-12 sm:w-14 sm:h-14 text-white" />,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between p-4 sm:p-6 md:p-10">
+    <div className="min-h-screen bg-[#000000] text-white flex flex-col justify-between p-4 sm:p-6 md:p-10">
       {/* Top minimal status bar */}
       <div className="flex items-center justify-between max-w-5xl mx-auto w-full">
         {(!isInstalled && (isInstallable || isIOS)) ? (
           <button
             onClick={onOpenPWAInstall}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-md hover:bg-slate-100 transition shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-neutral-900 border border-neutral-700/80 rounded-lg hover:bg-neutral-800 transition shadow-xs"
           >
-            <Download className="w-3.5 h-3.5 text-[#0694E8]" />
+            <Download className="w-3.5 h-3.5 text-white" />
             <span>Instalar App</span>
           </button>
         ) : (
@@ -71,51 +61,47 @@ export const RoleSelector: React.FC<RoleSelectorProps> = ({
 
         <button
           onClick={onOpenDataReset}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 bg-white border border-slate-200 rounded-md hover:bg-slate-100 transition shadow-xs"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-neutral-900 border border-neutral-700/80 rounded-lg hover:bg-neutral-800 transition shadow-xs"
           title="Gestión de datos de muestra y preparación para Supabase"
         >
-          <Database className="w-3.5 h-3.5 text-[#D32421]" />
+          <Database className="w-3.5 h-3.5 text-white" />
           <span>{isSampleDisabled ? 'Base Limpia (Supabase)' : 'Datos de Muestra'}</span>
         </button>
       </div>
 
       {/* Main role selector container */}
       <div className="max-w-5xl mx-auto w-full my-auto py-8">
-        {/* Institutional Logo - Clean, centered */}
+        {/* Institutional Logo - Sin encapsular, tamaño original sobre fondo #000000 */}
         <div className="flex flex-col items-center justify-center mb-10 text-center">
-          <div className="w-48 sm:w-56 md:w-64 mb-3 flex items-center justify-center">
-            <img
-              src="https://appdesignproyectos.com/myschoollogo.png"
-              alt="My School ABC"
-              className="max-h-20 w-auto object-contain drop-shadow-xs"
-              onError={(e) => {
-                // Fallback if network blocked
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
-          </div>
-          <span className="text-xs uppercase tracking-widest text-slate-400 font-semibold">
+          <img
+            src="https://appdesignproyectos.com/myschoollogo.png"
+            alt="My School ABC"
+            className="h-28 sm:h-32 md:h-36 w-auto object-contain mb-3"
+            onError={(e) => {
+              // Fallback if network blocked
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
+          <span className="text-xs uppercase tracking-widest text-neutral-400 font-semibold">
             Portal Institucional Escolar
           </span>
         </div>
 
-        {/* Cuadrícula 2 Columnas Móvil / 4 Columnas Escritorio: Solo nombre del rol y el logo */}
+        {/* Cuadrícula 2 Columnas Móvil / 4 Columnas Escritorio: Sin encapsular íconos, íconos blancos */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {roles.map((role) => (
             <button
               key={role.id}
               onClick={() => setCurrentRole(role.id)}
-              className={`group flex flex-col items-center justify-center p-5 sm:p-7 md:p-8 bg-white border border-slate-200 rounded-xl transition-all duration-200 text-center cursor-pointer ${role.hoverBorder}`}
+              className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-neutral-900 border border-neutral-800 hover:border-[#0694E8] rounded-2xl transition-all duration-200 text-center cursor-pointer hover:bg-neutral-850 hover:shadow-xl"
             >
-              {/* Logo / Emblema del rol */}
-              <div
-                className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-105 ${role.color}`}
-              >
+              {/* Ícono de acceso sin encapsular, en color blanco */}
+              <div className="mb-4 text-white transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
                 {role.icon}
               </div>
 
-              {/* Nombre del rol */}
-              <h2 className="text-sm sm:text-base font-semibold text-slate-900 group-hover:text-slate-950 transition-colors">
+              {/* Nombre del rol en blanco */}
+              <h2 className="text-sm sm:text-base font-semibold text-white transition-colors">
                 {role.title}
               </h2>
             </button>
@@ -124,7 +110,7 @@ export const RoleSelector: React.FC<RoleSelectorProps> = ({
       </div>
 
       {/* Footer minimal info */}
-      <footer className="text-center text-xs text-slate-400 py-4 max-w-5xl mx-auto w-full">
+      <footer className="text-center text-xs text-neutral-500 py-4 max-w-5xl mx-auto w-full">
         <span>My School ABC · Plataforma de Gestión Educativa · PWA Instalable</span>
       </footer>
     </div>

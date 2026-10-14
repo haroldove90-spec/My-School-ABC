@@ -61,20 +61,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDataReset, onOpenPWAInstal
   return (
     <header className="sticky top-0 z-30 bg-[#000000] border-b border-neutral-800 shadow-md">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3 sm:gap-4">
-        {/* Left: Logotipo del sistema */}
+        {/* Left: Logotipo del sistema y Rol activo */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          <div className="flex items-center bg-white px-2 py-1 rounded-lg shadow-xs">
-            <img
-              src="https://appdesignproyectos.com/myschoollogo.png"
-              alt="My School ABC"
-              className="h-7 sm:h-8 md:h-9 w-auto object-contain"
-              onError={(e) => {
-                // Fallback text branding if image fails
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
-            <span className="sr-only">My School ABC</span>
-          </div>
+          <img
+            src="https://appdesignproyectos.com/myschoollogo.png"
+            alt="My School ABC"
+            className="h-10 sm:h-11 md:h-12 w-auto object-contain"
+            onError={(e) => {
+              // Fallback text branding if image fails
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
 
           {/* Active Role Identification (Desktop & Tablet) */}
           <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-neutral-800">
