@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-school-black: #000000;
+  --color-school-blue: #0694E8;
+  --color-school-red: #D32421;
+  --color-school-green: #049643;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}

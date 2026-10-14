@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "My School ABC",
+  "short_name": "MySchoolABC",
+  "description": "Sistema escolar integral My School ABC",
+  "theme_color": "#0694E8",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://appdesignproyectos.com/myschoolicono.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://appdesignproyectos.com/myschoolicono.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

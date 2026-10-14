@@ -1,0 +1,6 @@
+{
+  "name": "My School ABC",
+  "description": "Sistema escolar integral con acceso por roles, muro de avisos, menú, eventos, cobranza, facturación y PWA instalable.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
